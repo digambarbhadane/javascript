@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array Destructuring</title>
+</head>
+<script>
+    let user = ['ujwal', 25, 'Surat']
+
+    let [name, ...args] = user
+    
+
+    console.log("Name----------",name)
+    console.log(args)
+    
+    function demo([name,age,city])
+    {
+        console.log("Inside function")
+        console.log("Name----------",name)
+        console.log("age----------",age)
+        console.log("city----------",city)
+    }
+    demo(['ujwal', 25, 'Surat'])
+
+    function demo2(){
+        return ['ujwal', 25, 'Surat']
+    }
+    let [username, age, city] = demo2()
+    console.log("City in demo 2------",city)
+</script>
+<body>
+    
+</body>
+</html>

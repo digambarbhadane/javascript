@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rest Parameters</title>
+</head>
+<script>
+    function sum()
+    {
+        let sum = 0
+        console.log("Arguments---",arguments)
+        for(i in arguments)
+        {
+            sum +=arguments[i]
+        }
+        document.write("sum-------------",sum +"<br>")
+
+    }
+    sum(10,20,30)
+
+    function add(name, ...args)
+    {   
+        let sum = 0
+        document.write(name)
+        console.log("args----",args)
+        for(i in args)
+        {   
+            sum += args[i]
+            
+        }
+        document.write("addSum--------", sum +"<br/>")
+
+    }
+    add("Kiran", 10,85,452)
+</script>
+<body>
+    
+</body>
+</html>

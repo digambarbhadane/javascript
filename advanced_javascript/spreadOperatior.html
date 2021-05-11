@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spread Operator</title>
+</head>
+<script>
+    function sum()
+    {
+        let sum = 0
+        console.log("Arguments---",arguments)
+        for(i in arguments)
+        {
+            sum +=arguments[i]
+        }
+        document.write("sum-------------",sum +"<br>")
+
+    }
+    var arr = [40, 50, 60]
+    sum(10,20,30, ...arr) // Pass saperete value of array
+    var arr1 = [1,2,3,4]
+    var arr2 = [5,6,7,8]
+    var arr3 = [65,...arr1, 75, ...arr2, 85] //concare array without using function 
+    document.write("array 3---",arr3)
+
+    var obj1 = {
+        name :"Kiran"
+    }
+    var obj2 = {
+        age :23
+    }
+
+    var obj3 = {...obj1, ...obj2}
+    console.log("Object 3 ------------", obj3)
+</script>
+<body>
+    
+</body>
+</html>

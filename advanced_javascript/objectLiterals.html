@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Object Literals</title>
+</head>
+<script>
+    let name = 'Kiran'
+    let degree = 'MCA'
+    let obj ={
+        name,
+        degree
+    }
+    console.log("Object---", obj)
+
+    let n = "Employee"
+    let obj2 = {
+        [ n + "Name" ] :"Digambar",
+        company:"Atyantik Technologies",
+        details(){
+            return(`${this.EmployeeName} is Employee of ${this.company}`)
+        }
+    }
+    console.log("object 2---", obj2)
+    console.log("object 2---", obj2.details())
+</script>
+<body>
+    
+</body>
+</html>
