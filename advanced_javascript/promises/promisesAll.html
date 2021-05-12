@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promises All</title>
+
+    <script>
+        let p1 = new Promise((resolve, reject) => {
+            setTimeout(() => {
+                console.log("Promise P1 called")
+                resolve(10)
+            }, 1 * 1000)
+        })
+        let p2 = new Promise((resolve, reject) => {
+            setTimeout(() => {
+                console.log("Promise P2 called")
+            }, 1 * 2000)
+            resolve(20)
+        })
+
+        let p3 = new Promise((resolve, reject) => {
+            setTimeout(() => {
+                console.log("Promise P3 called")
+            }, 1 * 3000)
+            resolve(30)
+        })
+
+
+        var total = 0
+        Promise.all([p1, p2, p3]).then((result) => {
+            for (var i in result) { total += result[i] }
+            console.log(`Result : ${result}`)
+            console.log(`Total: ${total}`)
+        }).catch((error) => {
+            console.log(`Error : ${error}`)
+        })
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

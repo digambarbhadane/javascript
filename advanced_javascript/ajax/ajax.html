@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+
+    <title>ajax</title>
+    <script>
+        function loadData() {
+            console.log("function called")
+            var xhttp = new XMLHttpRequest();
+            console.log("xhttp-----------", xhttp)
+            xhttp.onreadystatechange = function () {
+                console.log("readyState---------", xhttp.readyState)
+                console.log("status", status);
+                if (xhttp.readyState == 4 && xhttp.status == 200) {
+                    console.log(this.responseText);
+                } else if (xhttp.readyState == 4 && xhttp.status == 404) {
+                    console.log("file not found")
+                }
+                xhttp.open('GET', "https://jsonplaceholder.typicode.com/posts", true);
+                xhttp.send();
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <p id="demo">Here We load data</p>
+    <button onclick="loadData()">Click Me</button>
+
+
+</body>
+
+
+</html>
