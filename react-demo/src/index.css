@@ -1,0 +1,18 @@
+.couter-textbox {
+  width: 30px;
+  height: 30px;
+  text-align: center;
+
+  border: 1px solid;
+  margin: 10px;
+  font-size: 14px;
+}
+.counter-btn {
+  height: 30px;
+  width: 30px;
+  font-size: 20px;
+  color: #000;
+  border-radius: 4px;
+  border: 1px solid;
+  text-align: center;
+}
