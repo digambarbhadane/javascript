@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script>
+    let a = Symbol("hello");
+    let b = Symbol("hello");
+    console.log(a == b);
+    // alert(a.description)
+    let age = Symbol("age")
+
+    let user = {
+        name: "Kiran",
+        batch: "MCA"
+    }
+    user[age] = 23
+
+    console.log(user)
+    console.log(user.name)
+    console.log(user[age])
+</script>
+
+<body>
+
+</body>
+
+</html>

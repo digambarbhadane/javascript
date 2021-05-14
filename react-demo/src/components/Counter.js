@@ -1,145 +1,100 @@
-import { React, useState } from "react";
+import React, { useState } from "react";
 
 const Counter = () => {
-  const [counter, setCounter] = useState(0);
+  const [values, setValues] = useState([]);
 
-  function increaseCounter(index) {
-    console.log("called", index);
-    index === "counter" && setCounter(counter + 1);
-    console.log("counter value---", counter);
-  }
+  const createUI = () => {
+    return values.map((el, i) => (
+      <div key={i} className="counter-div">
+        <input
+          type="text"
+          value={el}
+          readOnly
+          className="form-control text-center small-text    "
+        ></input>
+        <button
+          value={el}
+          onClick={(e) => handleDescrement(e, i)}
+          className="btn btn-sm btn-warning m-2"
+        >
+          {" "}
+          -{" "}
+        </button>
+        <button
+          value={el}
+          onClick={(e) => handleIncrement(e, i)}
+          className="btn btn-sm btn-success m-2"
+        >
+          {" "}
+          +{" "}
+        </button>
 
-  function decreaseCounter(index) {
-    index === "counter" && setCounter(counter - 1);
-  }
-
-  const resetCounter = () => {
-    console.log("rset counter");
-    setCounter(0);
-    // console.log("counter value---", counter);
+        <button
+          onClick={(e) => deleteCounter(i)}
+          className="btn btn-sm btn-danger m-2"
+        >
+          x
+        </button>
+      </div>
+    ));
   };
 
-  function createCounter() {
-    console.log("function called");
+  const deleteCounter = (i) => {
+    let value = [...values];
+    value.splice(i, 1);
+    setValues(value);
+  };
 
-    var div = document.createElement("div");
-    div.id = "counter";
-    div.className = "counter-div";
+  const handleIncrement = (event, i) => {
+    let value = [...values];
+    value[i] = value[i] + 1;
+    setValues(value);
+    console.log("values---", values);
+  };
 
-    var row = div.rowIndex;
-    console.log("row----------", row);
+  const handleDescrement = (event, i) => {
+    let value = [...values];
+    value[i] = value[i] > 0 ? value[i] - 1 : 0;
+    setValues(value);
+  };
 
-    var textbox = document.createElement("input");
-    textbox.type = "text";
-    textbox.name = "counter";
-    textbox.id = counter;
-    textbox.value = counter;
-    textbox.className = "couter-textbox";
+  const handleAdd = () => {
+    setValues((arr) => [...arr, 0]);
+    console.log("values---", values);
+  };
 
-    var btnIncrement = document.createElement("input");
-    btnIncrement.type = "button";
-    btnIncrement.name = "increamentBtn";
-    btnIncrement.value = "+";
-    btnIncrement.className = "counter-btn";
-
-    var btnDecrement = document.createElement("input");
-    btnDecrement.type = "button";
-    btnDecrement.name = "decrementBtn";
-    btnDecrement.value = "-";
-    btnDecrement.className = "counter-btn";
-
-    var btnDelete = document.createElement("input");
-    btnDelete.type = "button";
-    btnDelete.name = "delete";
-    btnDelete.value = "X";
-    btnDelete.className = "btn-delete";
-    btnDelete.addEventListener("click", function () {
-      document.body.removeChild(div);
+  const clearData = () => {
+    let value = [];
+    values.map((i) => {
+      return value.push(0);
     });
+    setValues(value);
+  };
 
-    div.appendChild(btnDecrement);
-    div.appendChild(textbox);
-    div.appendChild(btnIncrement);
-    div.appendChild(btnDelete);
-
-    // var container = document.getElementById("container");
-    document.body.appendChild(div);
-
-    btnIncrement.addEventListener("click", function () {
-      increaseCounter("counter");
-    });
-
-    btnDecrement.addEventListener("click", function () {
-      decreaseCounter("counter");
-    });
-
-    // };
-  }
+  const deleteAll = () => {
+    setValues([]);
+  };
   return (
-    <>
-      <p>Counter</p>
-      <button onClick={() => createCounter()}>Add Counter</button>
-      <button onClick={() => resetCounter()}>Reset Counter</button>
-      <div className="container" id="container"></div>
-    </>
-    // <div>
-    //   <button onClick={() => createCounter()}>Add Counter</button>&nbsp;&nbsp;
-    //   <button>Reset All Counters</button>
-    //   <div>
-    //     <p>Counter 1</p>
-    //     <button
-    //       onClick={() => decreaseCounter("first")}
-    //       className="counter-btn"
-    //     >
-    //       -
-    //     </button>
-    //     <input
-    //       type="text"
-    //       id="number"
-    //       value={firstCounter}
-    //       readOnly
-    //       className="couter-textbox"
-    //     />
-    //     <button
-    //       onClick={() => increaseCounter("first")}
-    //       className="counter-btn"
-    //     >
-    //       +
-    //     </button>
-    //   </div>
-    //   <br />
-    //   <br />
-    //   <p>Counter 2</p>
-    //   <button onClick={() => decreaseCounter("second")} className="counter-btn">
-    //     -
-    //   </button>
-    //   <input
-    //     type="text"
-    //     id="number"
-    //     value={secondCounter}
-    //     readOnly
-    //     className="couter-textbox"
-    //   />
-    //   <button onClick={() => increaseCounter("second")} className="counter-btn">
-    //     +
-    //   </button>
-    //   <br />
-    //   <br />
-    //   <p>Counter 3</p>
-    //   <button onClick={() => decreaseCounter("third")} className="counter-btn">
-    //     -
-    //   </button>
-    //   <input
-    //     type="text"
-    //     id="number"
-    //     value={thirdCounter}
-    //     readOnly
-    //     className="couter-textbox"
-    //   />
-    //   <button onClick={() => increaseCounter("third")} className="counter-btn">
-    //     +
-    //   </button>
-    // </div>
+    <div>
+      <button
+        onClick={() => handleAdd()}
+        className="btn btn-md btn-primary m-1"
+      >
+        Add
+      </button>
+      <button
+        onClick={() => clearData()}
+        className="btn btn-md btn-secondary m-1"
+      >
+        Reset All
+      </button>
+
+      <button onClick={() => deleteAll()} className="btn btn-md btn-danger m-1">
+        Delete All
+      </button>
+
+      {createUI()}
+    </div>
   );
 };
 
