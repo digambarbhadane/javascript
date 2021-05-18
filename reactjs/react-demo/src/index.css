@@ -1,0 +1,16 @@
+.counter-div {
+  height: auto;
+  text-align: center;
+  border: 1px solid #000;
+  background: #f2f2f2;
+  width: 15%;
+  margin: auto;
+  margin-top: 10px;
+  padding: 20px;
+  border-radius: 10px;
+}
+.counter-textbox {
+  width: 60px !important;
+  margin: auto;
+  background: #e2e0e1;
+}

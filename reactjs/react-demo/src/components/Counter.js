@@ -10,7 +10,7 @@ const Counter = () => {
           type="text"
           value={el}
           readOnly
-          className="form-control text-center small-text    "
+          className="form-control text-center small-text counter-textbox"
         ></input>
         <button
           value={el}
